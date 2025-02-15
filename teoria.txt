@@ -1,0 +1,171 @@
+/*
+
+https://github.com/pdep-noche-mavi/tutorial-plantuml
+
+
+objeto :
+    -identidad
+        *univoco, por mas que tenga dos pajaros, ambos son unicos
+    -comportamiento
+        *operaciones que van a saber hacer, que lo voy a poder
+        pedir a los objetos que hagan
+    -estado
+        * caracteristicas propias del objeto que pueden cambiar
+        con el tiempo /////ATRIBUTOS(referencia)/////
+
+ambiente :
+    - Donde viven los objetos, suele cambiar a medida que voy haciendo el codigo.
+
+Method lookup:
+    - Es el que relaciona el mensaje que le mande al objeto que le mande desde
+    afuera con el metodo que tiene implementado un objeto.
+
+Interfaz :
+    -Es el conjunto de mensajes que me interesa que sepa un objeto
+
+objeto.mensaje() sintaxis para pedirle cosas (mandarle mensajes)
+
+variable :
+    - referencia : Es la forma en la que se pueden conoces objetos
+        *Una variable apunta o referencia a un objeto.
+
+* la forma en la que se definen comportamientos a un objeto es mediante metodos
+para que un objeto entienda un mensaje, el objeto tiene que tener un metodo que
+defina al mensaje
+
+el uso de self, me ayuda a no usar el nombre del objeto por ejemplo
+object ejemplo{}
+
+ejemplo.mensaje() = self.mensaje()
+
+por definicion, self es una variable que se apunta a si mismo, se referencia a si
+mismo, se manda un mensaje a si mismo.
+
+
+a los metodos que cambian un atributo por un nuevo valor, se los llama SETTERS
+al que devuelve el valor de un atributo, se lo llama GETTERS (darme/obtener)
+
+*/
+
+
+/*
+
+COLECCIONES
+
+LISTAS(LIST)
+
+    -tienen orden y permiten repetidos, mutables(modificables en ejecucion)
+    -son heterogeneas(puedo tener elementos de distinto tipo)
+    - [] / new List()
+
+SET(CONJUNTOS)
+
+    - sin orden y sin repetidos
+    - mutables
+    -heterogeneas
+    - #{} / new Set()
+
+
+CONCEPTO DE BLOQUES
+
+BLOQUE:
+    - Porcion de codigo que es ejecutable en diferido y reutilizable
+    - Lo escribo ahora y lo ejecuto despues
+
+
+.forEach : ejecuta un bloque en una lista
+
+Clases:
+
+    -Molde que define un comportamiento estandar y permite crear instancias
+    - Lo que me permite es instanciar(crear) un molde para algo mas diverso
+    - class Algo{} para crear algo con el molde de class, pong const Algo2() = new Gato()
+    -
+
+CLASES ABSTRACTAS Y CONCRETAS
+
+Metodo abstracto:
+    - declara su nombre y parametros pero sin implementarse.
+    - Una clase con al menos un metodo abstracto se considera una clase
+    abstracta. 
+
+*/
+
+
+/*
+
+Super: referencia al metodo de la clase ancestro (mas directo), me altera
+el method lookup
+
+diagrama de clases, los que estan en italica no estan definidos(metodo abstracto)
+
+
+
+WKO
+
+    -Objetivo bien conocido(well know object), objetos bien importantes
+
+formas de lanzar una excepcion:
+
+-enviando un mensaje: self.error("paso tal cosa")
+
+-instanciando una excepcion: throw new UserException(message = "Paso tal cosa")
+
+-usar try catch
+try{
+    //trata de ejecutar este codigo
+}catch exception{
+
+} // y en caso de que no puedas, atrapala y ejecuta esto.
+
+
+
+throw:
+    - Lanza una excepcion
+    
+
+*Una excepción es un evento que altera el flujo normal de mensajes entre objetos.
+
+
+*/
+
+object tiroAlBlanco{
+    method ticketsGanados(jugador) = (jugador.punteria() /  10).roundUp()
+// Basicamente le paso por parametro un jugador, y al jugador le va a mandar un mensaje
+// en este caso "punteria" para que devuelva algo.
+
+}
+
+INSTANCIACION: construccion de nuevos objetos a partir de una clase
+
+instanciacion sin parametros :
+    const cormoran = new Ave()
+
+instanciacion con parametros : 
+
+    class Presentacion{
+        var property lugar
+        const property musicos
+        var property valorEntrada
+    }
+    const seruEnLuna = new Presentacion(lugar, lunaPark, musicos = [seruGiran], valorEntrada = 2000)
+
+
+/*
+
+HERENCIA
+
+ME DA LA CAPACIDAD DE HEREDAR EL COMPORTAMIENTO DE UNA CLASE A OTRAS.
+
+*/
+
+herencia vs composicion:
+
+- En herencia no voy a poder cambiarle la instancia, es decir por ejemplo, 
+pasar un usuario de  normal a premium, con clases heredadas no se va a poder
+
+Aqui entra en juego la composicion !!!
+
+Basicamente la composicion lo que hace es, en vez de usarlo como clases, lo convierte en
+una variable var o const (un atributo).
+
